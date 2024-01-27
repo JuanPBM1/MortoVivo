@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
+import static java.lang.System.in;
+
 public class Main {
     public static void main(String[] args) {
         boolean game = true;
-        Scanner scan = new Scanner(System.in);
-        int opcao;
+        Scanner scan = new Scanner(in);
         while (game == true) {
             System.out.print("\t\tMorto-Vivo\t\t\n");
             System.out.print("Selecione uma opção:\n\n");
@@ -12,7 +13,8 @@ public class Main {
             System.out.print("[2] Iniciar jogo\n");
             System.out.print("[3] Highscores\n");
             System.out.print("[4] Sair do jogo\n");
-            opcao = scan.nextInt();
+            int opcao = scan.nextInt();
+            scan.nextLine();
             switch (opcao){
                 case 1:
                     //xxx
@@ -24,11 +26,14 @@ public class Main {
                     //xxx
                 break;
                 case 4:
-                    //xxx
+                    game = false;
                 break;
 
                 default:
                     limpaConsole();
+                    System.out.print("Número inválido!\nDigite qualquer tecla para continuar\n\n");
+                    scan.nextLine();
+
             }
         }
     }
